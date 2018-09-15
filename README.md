@@ -4,7 +4,7 @@ More coming soon...
 ## Install using cocoapods
 `pod 'OpenFoodFactsSDK', :git => 'https://github.com/keegho/off-sdk-ios.git'`
 ## How to use the SDK?
-#####Example:
+Example:
 `//Import the open food facts sdk to your view controller`
 `import OpenFoodFactsSDK`
 
