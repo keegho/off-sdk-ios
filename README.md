@@ -11,10 +11,9 @@ import OpenFoodFactsSDK
     private let off = OFF()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
 
-        off.enviroment = .production
-        off.lanugageUrl = .fr
+        off.enviroment = .production   //.production . testing
+        off.lanugageUrl = .fr          //.world .fr .ar .de
         
         return true
     }
