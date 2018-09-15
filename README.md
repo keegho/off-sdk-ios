@@ -28,7 +28,7 @@ override func viewDidLoad() {
     super.viewDidLoad()
     
     //Call get product closure function
-    off.getProduct(code: "34673490998") { (product, message) in
+    off.getProduct(code: "737628064502") { (product, message) in
             if product != nil {
                 item = product!
                 print(item?.genericName ?? "NO PRODUCT NAME")
