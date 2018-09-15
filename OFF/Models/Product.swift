@@ -51,7 +51,11 @@ public class OFFProduct {
         code = try container.decodeIfPresent(String.self, forKey: .code)
         genericName = try container.decodeIfPresent(String.self, forKey: .genericName)
         productName = try container.decodeIfPresent(String.self, forKey: .productName)
-        novaGoup = try container.decodeIfPresent(String.self, forKey: .novaGroup)
+        do {
+            novaGoup = try container.decodeIfPresent(String.self, forKey: .novaGroup)
+        }catch DecodingError.typeMismatch {
+            novaGoup = String(try container.decode(Int.self, forKey: .novaGroup))
+        }
         brandsTags = try container.decodeIfPresent([String].self, forKey: .brandsTags)
         storesTags = try container.decodeIfPresent([String].self, forKey: .storesTags)
         ingredientText = try container.decodeIfPresent(String.self, forKey: .ingredientText)

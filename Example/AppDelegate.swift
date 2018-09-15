@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         off.enviroment = .production
-        off.lanugageUrl = .fr
+        off.lanugageUrl = .world
         
         return true
     }

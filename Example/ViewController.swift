@@ -22,6 +22,7 @@ class ViewController: UIViewController {
                 print(product?.genericName ?? "NO NAME")
                 self.item = product!
                 print(self.item.code ?? "NO CODE")
+                print(self.item.nutriments?.carbohydrates ?? "NO CARBS")
             } else {
                 print(message ?? "NO MESSAGE")
             }
