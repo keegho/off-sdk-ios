@@ -32,7 +32,7 @@
 		193B5AB4214C4BB8002474B1 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B5AB3214C4BB8002474B1 /* Languages.swift */; };
 		193B5AB6214C7844002474B1 /* OFF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B5AB5214C7844002474B1 /* OFF.swift */; };
 		193B5AB8214C7D46002474B1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 193B5AB7214C7D46002474B1 /* .gitignore */; };
-		193B5ABA214C7DE5002474B1 /* OFF.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 193B5AB9214C7DE5002474B1 /* OFF.podspec */; };
+		193B5ABA214C7DE5002474B1 /* OpenFoodFactsSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 193B5AB9214C7DE5002474B1 /* OpenFoodFactsSDK.podspec */; };
 		193B5ABB214C86E1002474B1 /* OpenFoodFactsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193B5A5D214C4A3F002474B1 /* OpenFoodFactsSDK.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +66,7 @@
 		193B5AB3214C4BB8002474B1 /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		193B5AB5214C7844002474B1 /* OFF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFF.swift; sourceTree = "<group>"; };
 		193B5AB7214C7D46002474B1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		193B5AB9214C7DE5002474B1 /* OFF.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFF.podspec; sourceTree = "<group>"; };
+		193B5AB9214C7DE5002474B1 /* OpenFoodFactsSDK.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = OpenFoodFactsSDK.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 		193B5A53214C4A3F002474B1 = {
 			isa = PBXGroup;
 			children = (
-				193B5AB9214C7DE5002474B1 /* OFF.podspec */,
+				193B5AB9214C7DE5002474B1 /* OpenFoodFactsSDK.podspec */,
 				193B5AB7214C7D46002474B1 /* .gitignore */,
 				193B5A5F214C4A3F002474B1 /* OFF */,
 				193B5AA0214C4B06002474B1 /* Example */,
@@ -303,7 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				193B5ABA214C7DE5002474B1 /* OFF.podspec in Resources */,
+				193B5ABA214C7DE5002474B1 /* OpenFoodFactsSDK.podspec in Resources */,
 				193B5AB8214C7D46002474B1 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
