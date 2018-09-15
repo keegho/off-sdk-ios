@@ -5,7 +5,7 @@ More coming soon...
 `pod 'OpenFoodFactsSDK', :git => 'https://github.com/keegho/off-sdk-ios.git'`
 ## How to use the SDK?
 Example:
-```
+```swift
 import OpenFoodFactsSDK
 
 private let off = OFF() 
