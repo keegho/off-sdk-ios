@@ -1,7 +1,7 @@
 language: objective-c
 osx_image: xcode9.4
 xcode_project: OpenFoodFactsSDK.xcodeproj # path to your xcodeproj folder
-xcode_scheme: OpenFoodFactsSDKTests
+xcode_scheme: OpenFoodFactsSDK
 xcode_destination: platform=iOS Simulator,OS=11.4,name=iPhone 7
 #script:
 #  - xcodebuild clean build-for-testing -project OpenFoodFactsSDK.xcodeproj -scheme OpenFoodFactsSDK -destination "platform=iOS Simulator,name=iPhone 7,OS=11" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO -quiet
