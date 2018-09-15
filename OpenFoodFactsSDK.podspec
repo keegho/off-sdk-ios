@@ -10,6 +10,6 @@ spec.social_media_url = "http://twitter.com/keegho"
 spec.platform = :ios, "11.0"
 spec.requires_arc = true
 spec.source = { git: "https://github.com/keegho/off-sdk-ios.git", tag: "v#{spec.version}", submodules: true }
-spec.source_files = "OpenFoodFactsSDK/**/*.{h,swift}"
+spec.source_files = "OFF/**/*.{h,swift}"
 
 end
