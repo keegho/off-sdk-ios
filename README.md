@@ -6,12 +6,12 @@ More coming soon...
 ## How to use the SDK?
 Example:
 
-`//Call get product closure function
+```//Call get product closure function
     off.getProduct(code: "34673490998") { (product, message) in
             if product != nil {
                 print(product?.genericName ?? "NO PRODUCT NAME")
             } else {
                 print(message ?? "NO MESSAGE")
             }
-     }`
+     }```
 
