@@ -1,0 +1,3 @@
+# off-sdk-ios
+An easy to use framework for building iOS apps for the open food facts database.
+More coming soon...
