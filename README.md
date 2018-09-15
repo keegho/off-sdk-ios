@@ -12,8 +12,8 @@ import OpenFoodFactsSDK
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        off.enviroment = .production   //.production . testing
-        off.lanugageUrl = .fr          //.world .fr .ar .de
+        off.enviroment = .production   //.production . testing  //Default production
+        off.lanugageUrl = .fr          //.world .fr .ar .de     //Default world
         
         return true
     }
