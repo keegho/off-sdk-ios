@@ -30,7 +30,7 @@ override func viewDidLoad() {
     //Call get product closure function
     off.getProduct(code: "34673490998") { (product, message) in
             if product != nil {
-                item == product!
+                item = product!
                 print(item?.genericName ?? "NO PRODUCT NAME")
             } else {
                 print(message ?? "NO MESSAGE")
