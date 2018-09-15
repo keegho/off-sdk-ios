@@ -17,14 +17,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        off.getProduct(code: "737628064502") { (product, message) in
+        off.getProduct(code: "737628064502") { (product, msg) in
             if product != nil {
                 print(product?.genericName ?? "NO NAME")
                 self.item = product!
                 print(self.item.code ?? "NO CODE")
                 print(self.item.nutriments?.carbohydrates ?? "NO CARBS")
             } else {
-                print(message ?? "NO MESSAGE")
+                print(msg ?? "NO MESSAGE")
             }
         }
         print(off.enviroment)
