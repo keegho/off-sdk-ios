@@ -34,7 +34,19 @@
 		193B5AB8214C7D46002474B1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 193B5AB7214C7D46002474B1 /* .gitignore */; };
 		193B5ABA214C7DE5002474B1 /* OpenFoodFactsSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 193B5AB9214C7DE5002474B1 /* OpenFoodFactsSDK.podspec */; };
 		193B5ABB214C86E1002474B1 /* OpenFoodFactsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193B5A5D214C4A3F002474B1 /* OpenFoodFactsSDK.framework */; };
+		1959ED23214DB15D004F391D /* OpenFoodFactsSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959ED22214DB15D004F391D /* OpenFoodFactsSDKTests.swift */; };
+		1959ED25214DB15D004F391D /* OpenFoodFactsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193B5A5D214C4A3F002474B1 /* OpenFoodFactsSDK.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1959ED26214DB15D004F391D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 193B5A54214C4A3F002474B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 193B5A5C214C4A3F002474B1;
+			remoteInfo = OpenFoodFactsSDK;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		193B5A5D214C4A3F002474B1 /* OpenFoodFactsSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenFoodFactsSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +79,9 @@
 		193B5AB5214C7844002474B1 /* OFF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OFF.swift; sourceTree = "<group>"; };
 		193B5AB7214C7D46002474B1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		193B5AB9214C7DE5002474B1 /* OpenFoodFactsSDK.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = OpenFoodFactsSDK.podspec; sourceTree = "<group>"; };
+		1959ED20214DB15D004F391D /* OpenFoodFactsSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenFoodFactsSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1959ED22214DB15D004F391D /* OpenFoodFactsSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactsSDKTests.swift; sourceTree = "<group>"; };
+		1959ED24214DB15D004F391D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +100,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1959ED1D214DB15D004F391D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1959ED25214DB15D004F391D /* OpenFoodFactsSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -95,6 +118,7 @@
 				193B5AB7214C7D46002474B1 /* .gitignore */,
 				193B5A5F214C4A3F002474B1 /* OFF */,
 				193B5AA0214C4B06002474B1 /* Example */,
+				1959ED21214DB15D004F391D /* OpenFoodFactsSDKTests */,
 				193B5A5E214C4A3F002474B1 /* Products */,
 				193B5AB1214C4B46002474B1 /* Frameworks */,
 			);
@@ -105,6 +129,7 @@
 			children = (
 				193B5A5D214C4A3F002474B1 /* OpenFoodFactsSDK.framework */,
 				193B5A9F214C4B06002474B1 /* ClientApp.app */,
+				1959ED20214DB15D004F391D /* OpenFoodFactsSDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,6 +237,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1959ED21214DB15D004F391D /* OpenFoodFactsSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				1959ED22214DB15D004F391D /* OpenFoodFactsSDKTests.swift */,
+				1959ED24214DB15D004F391D /* Info.plist */,
+			);
+			path = OpenFoodFactsSDKTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -261,6 +295,24 @@
 			productReference = 193B5A9F214C4B06002474B1 /* ClientApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1959ED1F214DB15D004F391D /* OpenFoodFactsSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1959ED28214DB15D004F391D /* Build configuration list for PBXNativeTarget "OpenFoodFactsSDKTests" */;
+			buildPhases = (
+				1959ED1C214DB15D004F391D /* Sources */,
+				1959ED1D214DB15D004F391D /* Frameworks */,
+				1959ED1E214DB15D004F391D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1959ED27214DB15D004F391D /* PBXTargetDependency */,
+			);
+			name = OpenFoodFactsSDKTests;
+			productName = OpenFoodFactsSDKTests;
+			productReference = 1959ED20214DB15D004F391D /* OpenFoodFactsSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -275,6 +327,9 @@
 						CreatedOnToolsVersion = 9.4.1;
 					};
 					193B5A9E214C4B06002474B1 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					1959ED1F214DB15D004F391D = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
@@ -294,6 +349,7 @@
 			targets = (
 				193B5A5C214C4A3F002474B1 /* OpenFoodFactsSDK */,
 				193B5A9E214C4B06002474B1 /* ClientApp */,
+				1959ED1F214DB15D004F391D /* OpenFoodFactsSDKTests */,
 			);
 		};
 /* End PBXProject section */
@@ -315,6 +371,13 @@
 				193B5AAC214C4B0E002474B1 /* LaunchScreen.storyboard in Resources */,
 				193B5AA9214C4B0E002474B1 /* Assets.xcassets in Resources */,
 				193B5AA7214C4B06002474B1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1959ED1E214DB15D004F391D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +418,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1959ED1C214DB15D004F391D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1959ED23214DB15D004F391D /* OpenFoodFactsSDKTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1959ED27214DB15D004F391D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 193B5A5C214C4A3F002474B1 /* OpenFoodFactsSDK */;
+			targetProxy = 1959ED26214DB15D004F391D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		193B5AA5214C4B06002474B1 /* Main.storyboard */ = {
@@ -588,6 +667,45 @@
 			};
 			name = Release;
 		};
+		1959ED29214DB15D004F391D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G5YLS6S3L6;
+				INFOPLIST_FILE = OpenFoodFactsSDKTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.idesignadv.OpenFoodFactsSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1959ED2A214DB15D004F391D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G5YLS6S3L6;
+				INFOPLIST_FILE = OpenFoodFactsSDKTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.idesignadv.OpenFoodFactsSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -614,6 +732,15 @@
 			buildConfigurations = (
 				193B5AAF214C4B0E002474B1 /* Debug */,
 				193B5AB0214C4B0E002474B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1959ED28214DB15D004F391D /* Build configuration list for PBXNativeTarget "OpenFoodFactsSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1959ED29214DB15D004F391D /* Debug */,
+				1959ED2A214DB15D004F391D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
