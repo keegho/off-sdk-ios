@@ -1,4 +1,4 @@
-![status](https://api.travis-ci.org/keegho/off-sdk-ios.png?branch=master)
+![license](https://img.shields.io/github/license/mashape/apistatus.svg)
 # Open Food Facts iOS SDK
 An easy to use framework for building iOS apps for the open food facts database.
 More coming soon...
