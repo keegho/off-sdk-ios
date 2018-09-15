@@ -5,8 +5,11 @@ More coming soon...
 `pod 'OpenFoodFactsSDK', :git => 'https://github.com/keegho/off-sdk-ios.git'`
 ## How to use the SDK?
 Example:
+```
+import OpenFoodFactsSDK
 
-```//Call get product closure function
+private let off = OFF() 
+//Call get product closure function
     off.getProduct(code: "34673490998") { (product, message) in
             if product != nil {
                 print(product?.genericName ?? "NO PRODUCT NAME")
