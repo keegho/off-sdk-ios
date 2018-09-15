@@ -33,6 +33,26 @@ public struct Nutriments {
     public let proteinsServing: String?
     public let proteins100g: String?
     public let proteinsUnit: String?
+    
+    public let fat: String?
+    public let fatServing: String?
+    public let fat100g: String?
+    public let fatUnit: String?
+    
+    public let saturatedFat: String?
+    public let saturatedFatServing: String?
+    public let saturatedFat100g: String?
+    public let saturatedFatUnit: String?
+    
+    public let fiber: String?
+    public let fiberServing: String?
+    public let fiber100g: String?
+    public let fiberUnit: String?
+    
+    public let salt: String?
+    public let saltServing: String?
+    public let salt100g: String?
+    public let saltUnit: String?
 }
 
 extension Nutriments: Decodable {
@@ -58,6 +78,22 @@ extension Nutriments: Decodable {
         case proteinsServing = "proteins_serving"
         case proteins100g = "proteins_100g"
         case proteinsUnit = "proteins_unit"
+        case fat = "fat"
+        case fatServing = "fat_serving"
+        case fat100g = "pfat_100g"
+        case fatUnit = "fat_unit"
+        case saturatedFat = "saturated-fat"
+        case saturatedFatServing = "saturated-fat_serving"
+        case saturatedFat100g = "saturated-fat_100g"
+        case saturatedFatUnit = "saturated-fat_unit"
+        case fiber = "fiber"
+        case fiberServing = "fiber_serving"
+        case fiber100g = "fiber_100g"
+        case fiberUnit = "fiber_unit"
+        case salt = "salt"
+        case saltServing = "salt_serving"
+        case salt100g = "salt_100g"
+        case saltUnit = "salt_unit"
     }
     
     public init(from decoder: Decoder) throws {
@@ -142,5 +178,78 @@ extension Nutriments: Decodable {
             proteins100g = String(try container.decode(Double.self, forKey: .proteins100g))
         }
         proteinsUnit = try container.decodeIfPresent(String.self, forKey: .proteinsUnit)
+        do {
+            fat = try container.decodeIfPresent(String.self, forKey: .fat)
+        }catch DecodingError.typeMismatch {
+            fat = String(try container.decode(Double.self, forKey: .fat))
+        }
+        do {
+            fatServing = try container.decodeIfPresent(String.self, forKey: .fatServing)
+        }catch DecodingError.typeMismatch {
+            fatServing = String(try container.decode(Double.self, forKey: .fatServing))
+        }
+        do {
+            fat100g = try container.decodeIfPresent(String.self, forKey: .fat100g)
+        }catch DecodingError.typeMismatch {
+            fat100g = String(try container.decode(Double.self, forKey: .fat100g))
+        }
+        fatUnit = try container.decodeIfPresent(String.self, forKey: .fatUnit)
+        do {
+            saturatedFat = try container.decodeIfPresent(String.self, forKey: .saturatedFat)
+        }catch DecodingError.typeMismatch {
+            saturatedFat = String(try container.decode(Double.self, forKey: .saturatedFat))
+        }
+        do {
+            saturatedFatServing = try container.decodeIfPresent(String.self, forKey: .saturatedFatServing)
+        }catch DecodingError.typeMismatch {
+            saturatedFatServing = String(try container.decode(Double.self, forKey: .saturatedFatServing))
+        }
+        do {
+            saturatedFat100g = try container.decodeIfPresent(String.self, forKey: .saturatedFat100g)
+        }catch DecodingError.typeMismatch {
+            saturatedFat100g = String(try container.decode(Double.self, forKey: .saturatedFat100g))
+        }
+        saturatedFatUnit = try container.decodeIfPresent(String.self, forKey: .saturatedFatUnit)
+        do {
+            fiber = try container.decodeIfPresent(String.self, forKey: .fiber)
+        }catch DecodingError.typeMismatch {
+            fiber = String(try container.decode(Double.self, forKey: .fiber))
+        }
+        do {
+            fiberServing = try container.decodeIfPresent(String.self, forKey: .fiberServing)
+        }catch DecodingError.typeMismatch {
+            fiberServing = String(try container.decode(Double.self, forKey: .fiberServing))
+        }
+        do {
+            fiber100g = try container.decodeIfPresent(String.self, forKey: .fiber100g)
+        }catch DecodingError.typeMismatch {
+            fiber100g = String(try container.decode(Double.self, forKey: .fiber100g))
+        }
+        fiberUnit = try container.decodeIfPresent(String.self, forKey: .fiberUnit)
+        do {
+            salt = try container.decodeIfPresent(String.self, forKey: .salt)
+        }catch DecodingError.typeMismatch {
+            salt = String(try container.decode(Double.self, forKey: .salt))
+        }
+        do {
+            saltServing = try container.decodeIfPresent(String.self, forKey: .saltServing)
+        }catch DecodingError.typeMismatch {
+            saltServing = String(try container.decode(Double.self, forKey: .saltServing))
+        }
+        do {
+            salt100g = try container.decodeIfPresent(String.self, forKey: .salt100g)
+        }catch DecodingError.typeMismatch {
+            salt100g = String(try container.decode(Double.self, forKey: .salt100g))
+        }
+        saltUnit = try container.decodeIfPresent(String.self, forKey: .saltUnit)
     }
 }
+
+
+
+
+
+
+
+
+
