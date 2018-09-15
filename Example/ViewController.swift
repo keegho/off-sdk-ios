@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import OFF
+import OpenFoodFactsSDK
 
 class ViewController: UIViewController {
 
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
             if product != nil {
                 print(product?.genericName ?? "NO NAME")
             } else {
-                print(message)
+                print(message ?? "NO MESSAGE")
             }
         }
 

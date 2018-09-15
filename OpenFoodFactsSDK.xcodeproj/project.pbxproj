@@ -29,15 +29,15 @@
 		193B5AA7214C4B06002474B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193B5AA5214C4B06002474B1 /* Main.storyboard */; };
 		193B5AA9214C4B0E002474B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 193B5AA8214C4B0E002474B1 /* Assets.xcassets */; };
 		193B5AAC214C4B0E002474B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193B5AAA214C4B0E002474B1 /* LaunchScreen.storyboard */; };
-		193B5AB2214C4B46002474B1 /* off_sdk_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193B5A5D214C4A3F002474B1 /* off_sdk_ios.framework */; };
 		193B5AB4214C4BB8002474B1 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B5AB3214C4BB8002474B1 /* Languages.swift */; };
 		193B5AB6214C7844002474B1 /* OFF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B5AB5214C7844002474B1 /* OFF.swift */; };
 		193B5AB8214C7D46002474B1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 193B5AB7214C7D46002474B1 /* .gitignore */; };
 		193B5ABA214C7DE5002474B1 /* OFF.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 193B5AB9214C7DE5002474B1 /* OFF.podspec */; };
+		193B5ABB214C86E1002474B1 /* OpenFoodFactsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193B5A5D214C4A3F002474B1 /* OpenFoodFactsSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		193B5A5D214C4A3F002474B1 /* off_sdk_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = off_sdk_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		193B5A5D214C4A3F002474B1 /* OpenFoodFactsSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenFoodFactsSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		193B5A60214C4A3F002474B1 /* OFF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OFF.h; sourceTree = "<group>"; };
 		193B5A61214C4A3F002474B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		193B5A6B214C4AAF002474B1 /* NutrientsLevels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientsLevels.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				193B5AB2214C4B46002474B1 /* off_sdk_ios.framework in Frameworks */,
+				193B5ABB214C86E1002474B1 /* OpenFoodFactsSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +103,7 @@
 		193B5A5E214C4A3F002474B1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				193B5A5D214C4A3F002474B1 /* off_sdk_ios.framework */,
+				193B5A5D214C4A3F002474B1 /* OpenFoodFactsSDK.framework */,
 				193B5A9F214C4B06002474B1 /* ClientApp.app */,
 			);
 			name = Products;
@@ -226,9 +226,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		193B5A5C214C4A3F002474B1 /* off-sdk-ios */ = {
+		193B5A5C214C4A3F002474B1 /* OpenFoodFactsSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 193B5A65214C4A3F002474B1 /* Build configuration list for PBXNativeTarget "off-sdk-ios" */;
+			buildConfigurationList = 193B5A65214C4A3F002474B1 /* Build configuration list for PBXNativeTarget "OpenFoodFactsSDK" */;
 			buildPhases = (
 				193B5A58214C4A3F002474B1 /* Sources */,
 				193B5A59214C4A3F002474B1 /* Frameworks */,
@@ -239,9 +239,9 @@
 			);
 			dependencies = (
 			);
-			name = "off-sdk-ios";
+			name = OpenFoodFactsSDK;
 			productName = OFF;
-			productReference = 193B5A5D214C4A3F002474B1 /* off_sdk_ios.framework */;
+			productReference = 193B5A5D214C4A3F002474B1 /* OpenFoodFactsSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		193B5A9E214C4B06002474B1 /* ClientApp */ = {
@@ -279,7 +279,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 193B5A57214C4A3F002474B1 /* Build configuration list for PBXProject "off-sdk-ios" */;
+			buildConfigurationList = 193B5A57214C4A3F002474B1 /* Build configuration list for PBXProject "OpenFoodFactsSDK" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -292,7 +292,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				193B5A5C214C4A3F002474B1 /* off-sdk-ios */,
+				193B5A5C214C4A3F002474B1 /* OpenFoodFactsSDK */,
 				193B5A9E214C4B06002474B1 /* ClientApp */,
 			);
 		};
@@ -429,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -486,7 +486,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -553,7 +553,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G5YLS6S3L6;
-				INFOPLIST_FILE = ClientApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -572,7 +572,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G5YLS6S3L6;
-				INFOPLIST_FILE = ClientApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -588,7 +588,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		193B5A57214C4A3F002474B1 /* Build configuration list for PBXProject "off-sdk-ios" */ = {
+		193B5A57214C4A3F002474B1 /* Build configuration list for PBXProject "OpenFoodFactsSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				193B5A63214C4A3F002474B1 /* Debug */,
@@ -597,7 +597,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		193B5A65214C4A3F002474B1 /* Build configuration list for PBXNativeTarget "off-sdk-ios" */ = {
+		193B5A65214C4A3F002474B1 /* Build configuration list for PBXNativeTarget "OpenFoodFactsSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				193B5A66214C4A3F002474B1 /* Debug */,
