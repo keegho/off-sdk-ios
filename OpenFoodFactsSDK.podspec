@@ -10,7 +10,7 @@ spec.swift_version = '4.0'
 
 spec.platform = :ios, "11.0"
 spec.requires_arc = true
-spec.source = { git: "https://github.com/keegho/off-sdk-ios.git", tag: "v#{spec.version}", submodules: true }
-spec.source_files = "OFF.{h,m}"
+spec.source = { git: "https://github.com/keegho/off-sdk-ios.git", :tag => "v#{spec.version}", submodules: true }
+spec.source_files = "OFF/*.{h,m}"
 
 end
