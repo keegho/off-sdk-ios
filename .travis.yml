@@ -1,3 +1,6 @@
 language: swift
+osx_image: xcode9.2
+before_install:
+  - gem install cocoapods
 xcode_project: OpenFoodFactsSDK.xcodeproj # path to your xcodeproj folder
 xcode_destination: platform=iOS Simulator,OS=11,name=iPhone 7
