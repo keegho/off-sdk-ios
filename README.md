@@ -9,7 +9,7 @@ Example:
 import OpenFoodFactsSDK
 //In the AppDelegate.swift setup your enviroment and url prefix
     private let off = OFF()
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         off.enviroment = .production   //.production . testing
@@ -22,13 +22,16 @@ import OpenFoodFactsSDK
 import OpenFoodFactsSDK
 
 private let off = OFF() 
+private var item = OFFProduct()
+
 override func viewDidLoad() {
     super.viewDidLoad()
     
     //Call get product closure function
     off.getProduct(code: "34673490998") { (product, message) in
             if product != nil {
-                print(product?.genericName ?? "NO PRODUCT NAME")
+                item == product!
+                print(item?.genericName ?? "NO PRODUCT NAME")
             } else {
                 print(message ?? "NO MESSAGE")
             }
