@@ -7,6 +7,20 @@ More coming soon...
 Example:
 ```swift
 import OpenFoodFactsSDK
+//In the AppDelegate.swift setup your enviroment and url prefix
+    private let off = OFF()
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+
+        off.enviroment = .production
+        off.lanugageUrl = .fr
+        
+        return true
+    }
+
+//Then in the ViewController
+import OpenFoodFactsSDK
 
 private let off = OFF() 
 override func viewDidLoad() {
