@@ -6,10 +6,11 @@ spec.homepage = "https://github.com/keegho/off-sdk-ios"
 spec.license = { type: 'MIT', file: 'LICENSE' }
 spec.authors = { "Kegham Karsian" => 'kegham1983@gmail.com' }
 spec.social_media_url = "http://twitter.com/keegho"
+spec.swift_version = '4.0'
 
 spec.platform = :ios, "11.0"
 spec.requires_arc = true
 spec.source = { git: "https://github.com/keegho/off-sdk-ios.git", tag: "v#{spec.version}", submodules: true }
-spec.source_files = "OFF/**/*.{h,swift}"
+spec.source_files = "OFF.{h,m}"
 
 end
