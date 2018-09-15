@@ -5,13 +5,13 @@ More coming soon...
 `pod 'OpenFoodFactsSDK', :git => 'https://github.com/keegho/off-sdk-ios.git'`
 ## How to use the SDK?
 Example:
-`//Import the open food facts sdk to your view controller`
-`import OpenFoodFactsSDK`
+`//Import the open food facts sdk to your view controller
+   import OpenFoodFactsSDK
 
-`//Initiate a variable from OFF class`
-`private let off = OFF()`
+//Initiate a variable from OFF class
+private let off = OFF()
 
-`override func viewDidLoad() {
+override func viewDidLoad() {
     super.viewDidLoad()
     //Call get product closure function
     off.getProduct(code: "34673490998") { (product, message) in
