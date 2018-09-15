@@ -9,12 +9,15 @@ Example:
 import OpenFoodFactsSDK
 
 private let off = OFF() 
-//Call get product closure function
+override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    //Call get product closure function
     off.getProduct(code: "34673490998") { (product, message) in
             if product != nil {
                 print(product?.genericName ?? "NO PRODUCT NAME")
             } else {
                 print(message ?? "NO MESSAGE")
             }
-     }```
-
+     }
+}
