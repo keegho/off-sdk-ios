@@ -12,14 +12,14 @@ public struct ProductResponse {
     public let statusVerbose: String
     public let code: String
     public let status: Int
-    public let product: Product?
+    public let product: OFFProduct?
 }
 
 
 /**
  A Open food facts product model class
 */
-public class Product {
+public class OFFProduct {
     public var code: String?
     public var genericName: String?
     public var productName: String?
@@ -86,7 +86,7 @@ public class Product {
     }
 }
 
-extension Product: Decodable {
+extension OFFProduct: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case code = "code"
@@ -128,7 +128,7 @@ extension ProductResponse: Decodable {
         status = try container.decode(Int.self, forKey: .status)
         code = try container.decode(String.self, forKey: .code)
         statusVerbose = try container.decode(String.self, forKey: .statusVerbose)
-        product = try container.decodeIfPresent(Product.self, forKey: .product)
+        product = try container.decodeIfPresent(OFFProduct.self, forKey: .product)
     }
 }
 

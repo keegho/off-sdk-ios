@@ -12,7 +12,7 @@ import OpenFoodFactsSDK
 class ViewController: UIViewController {
 
     private let off = OFF()
-    private var item = Product()
+    private var item = OFFProduct()
     
     override func viewDidLoad() {
         super.viewDidLoad()

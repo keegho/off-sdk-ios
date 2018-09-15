@@ -53,7 +53,7 @@ public class OFF {
      - Returns: product or error message
      
      */
-    public func getProduct(code: String, completion:@escaping(_ product:Product?, _ err: String?) ->()){
+    public func getProduct(code: String, completion:@escaping(_ product:OFFProduct?, _ err: String?) ->()){
         offProduct.request(.getScannedProduct(code: code)) { (data, response, err) in
             if err != nil {
                 completion(nil, "Please check your network connection")
