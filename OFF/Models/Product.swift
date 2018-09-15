@@ -16,59 +16,37 @@ public struct ProductResponse {
 }
 
 
-public struct Product {
-    public let code: String?
-    public let genericName: String?
-    public let productName: String?
+/**
+ A Open food facts product model class
+*/
+public class Product {
+    public var code: String?
+    public var genericName: String?
+    public var productName: String?
     public var countriesTags: [String]?
     public var countriesTagsAR: [String]?
-    public let brandsTags: [String]?
-    public let storesTags: [String]?
-    public let ingredientText: String?
-    public let ingredientsTextEN: String?
-    public let ingredientsTextAR: String?
-    public let creator: String?
-    public let quantity: String?
-    public let firstPackagingCodeGeo: String?
+    public var brandsTags: [String]?
+    public var storesTags: [String]?
+    public var ingredientText: String?
+    public var ingredientsTextEN: String?
+    public var ingredientsTextAR: String?
+    public var creator: String?
+    public var quantity: String?
+    public var firstPackagingCodeGeo: String?
     public var tracesTags: [String]?
     public var tracesTagsAR: [String]?
     public var labelsTags: [String]?
     public var labelsTagsAR: [String]?
     public var packagingTags: [String]?
     //var packagingTagsAR: [String]?
-    public let novaGoup: String?
-    public let nutritionGrades: String?
-    public let nutrietLevels: NutrientLevels?
-    public let nutriments: Nutriments?
+    public var novaGoup: String?
+    public var nutritionGrades: String?
+    public var nutrietLevels: NutrientLevels?
+    public var nutriments: Nutriments?
     
-}
-
-extension Product: Decodable {
+    public init(){}
     
-    private enum CodingKeys: String, CodingKey {
-        case code = "code"
-        case genericName = "generic_name"
-        case productName = "product_name"
-        case countryTags = "countries_tags"
-        case brandsTags = "brands_tags"
-        case storesTags = "stores_tags"
-        case ingredientsTextEN = "ingredients_text_en"
-        case ingredientsTextAR = "ingredients_text_ar"
-        case ingredientText = "ingredient_text"
-        case creator = "creator"
-        case quantity = "quantity"
-        case firstPackagingCodeGeo = "first_packaging_code_geo"
-        case tracesTags = "traces_tags"
-        case labelsTags = "labels_tags"
-        case packagingTags = "packaging_tags"
-        case novaGroup = "nova_group"
-        case nutritionGrades = "nutrition_grades"
-        case nutrientLevels = "nutrient_levels"
-        case nutriments = "nutriments"
-        
-    }
-    
-    public init(from decoder: Decoder) throws {
+    public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         code = try container.decodeIfPresent(String.self, forKey: .code)
         genericName = try container.decodeIfPresent(String.self, forKey: .genericName)
@@ -104,6 +82,32 @@ extension Product: Decodable {
         //        packagingTagsAR = packagingTagsAR != nil && (packagingTagsAR?.isEmpty)! ? nil : packagingTagsAR
         packagingTags = try container.decodeIfPresent([String].self, forKey: .packagingTags)//?.filter{$0.contains(Languages.en.rawValue)}
         //packagingTags = packagingTags != nil && (packagingTags?.isEmpty)! ? nil : packagingTags
+        
+    }
+}
+
+extension Product: Decodable {
+    
+    private enum CodingKeys: String, CodingKey {
+        case code = "code"
+        case genericName = "generic_name"
+        case productName = "product_name"
+        case countryTags = "countries_tags"
+        case brandsTags = "brands_tags"
+        case storesTags = "stores_tags"
+        case ingredientsTextEN = "ingredients_text_en"
+        case ingredientsTextAR = "ingredients_text_ar"
+        case ingredientText = "ingredient_text"
+        case creator = "creator"
+        case quantity = "quantity"
+        case firstPackagingCodeGeo = "first_packaging_code_geo"
+        case tracesTags = "traces_tags"
+        case labelsTags = "labels_tags"
+        case packagingTags = "packaging_tags"
+        case novaGroup = "nova_group"
+        case nutritionGrades = "nutrition_grades"
+        case nutrientLevels = "nutrient_levels"
+        case nutriments = "nutriments"
         
     }
     

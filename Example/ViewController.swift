@@ -12,6 +12,7 @@ import OpenFoodFactsSDK
 class ViewController: UIViewController {
 
     private let off = OFF()
+    private var item = Product()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,8 @@ class ViewController: UIViewController {
         off.getProduct(code: "737628064502") { (product, message) in
             if product != nil {
                 print(product?.genericName ?? "NO NAME")
+                self.item = product!
+                print(self.item.code ?? "NO CODE")
             } else {
                 print(message ?? "NO MESSAGE")
             }
