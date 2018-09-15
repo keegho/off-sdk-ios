@@ -9,14 +9,16 @@
 import Foundation
 
 struct NetworkManager {
-    static let enviroment: NetworkEnviroment = .production
-    static let apiKey = ""
+    
+    static var enviroment: NetworkEnviroment = .production
+    static var languageURL: LanguageURL = .world
+    static var apiKey = ""
 
 }
 
 enum NetworkResponse: String {
     case success
-    case authenticationError = "You need to be login first"
+    case authenticationError = "You need to login first"
     case badRequest = "Bad Request"
     case outdated = "The url you requested is outdated"
     case failed = "Network request falied"

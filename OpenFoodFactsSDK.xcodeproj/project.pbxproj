@@ -112,6 +112,7 @@
 		193B5A5F214C4A3F002474B1 /* OFF */ = {
 			isa = PBXGroup;
 			children = (
+				193B5AB5214C7844002474B1 /* OFF.swift */,
 				193B5A6A214C4AAF002474B1 /* Models */,
 				193B5A6F214C4AB0002474B1 /* Services */,
 				193B5A60214C4A3F002474B1 /* OFF.h */,
@@ -134,7 +135,6 @@
 		193B5A6F214C4AB0002474B1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				193B5AB5214C7844002474B1 /* OFF.swift */,
 				193B5AB3214C4BB8002474B1 /* Languages.swift */,
 				193B5A70214C4AB0002474B1 /* NetworkLayer */,
 			);

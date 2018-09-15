@@ -8,11 +8,6 @@
 
 import Foundation
 
-enum NetworkEnviroment {
-    case testing
-    case production
-}
-
 enum ProductApi {
     case getScannedProduct(code: String)
 }
@@ -22,11 +17,31 @@ extension ProductApi: EndPointType {
     var enviromentBasedUrl : String {
         switch NetworkManager.enviroment {
         case .testing:
-            return "https://world.openfoodfacts.org/api/v0/product/"
+            switch NetworkManager.languageURL {
+            case .world:
+                return "https://world.openfoodfacts.net/api/v0/product/"
+            case .ar:
+                return "https://ar.openfoodfacts.net/api/v0/product/"
+            case .fr:
+                return "https://fr.openfoodfacts.net/api/v0/product/"
+            case .de:
+                return "https://de.openfoodfacts.net/api/v0/product/"
+            }
+            
         case .production:
-            return "https://world.openfoodfacts.org/api/v0/product/"
+            switch NetworkManager.languageURL {
+            case .world:
+                return "https://world.openfoodfacts.org/api/v0/product/"
+            case .ar:
+                return "https://ar.openfoodfacts.org/api/v0/product/"
+            case .fr:
+                return "https://fr.openfoodfacts.org/api/v0/product/"
+            case .de:
+                return "https://de.openfoodfacts.org/api/v0/product/"
+            }
         }
     }
+    
     
     var baseUrl: URL {
         guard let url = URL(string: enviromentBasedUrl) else {fatalError("baseURL could not be configured.")}

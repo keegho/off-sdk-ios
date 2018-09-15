@@ -17,3 +17,15 @@ protocol EndPointType {
     var headers: HTTPHeaders? {get}
 }
 
+public enum NetworkEnviroment {
+    case testing
+    case production
+}
+
+public enum LanguageURL {
+    case world
+    case fr
+    case ar
+    case de
+}
+

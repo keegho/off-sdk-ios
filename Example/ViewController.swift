@@ -23,7 +23,7 @@ class ViewController: UIViewController {
                 print(message ?? "NO MESSAGE")
             }
         }
-
+        print(off.enviroment)
     }
 
     override func didReceiveMemoryWarning() {

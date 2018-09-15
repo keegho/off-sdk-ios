@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import OpenFoodFactsSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    private let off = OFF()
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        off.enviroment = .production
+        off.lanugageUrl = .fr
+        
         return true
     }
 
