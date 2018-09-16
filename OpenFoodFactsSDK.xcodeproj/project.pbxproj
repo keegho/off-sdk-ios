@@ -38,6 +38,7 @@
 		1959ED25214DB15D004F391D /* OpenFoodFactsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193B5A5D214C4A3F002474B1 /* OpenFoodFactsSDK.framework */; };
 		1959ED2C214E620D004F391D /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959ED2B214E620D004F391D /* Units.swift */; };
 		1959ED2F214E8A3E004F391D /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959ED2E214E8A3E004F391D /* HelperExtensions.swift */; };
+		1959ED31214EEB0D004F391D /* NutritionGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959ED30214EEB0D004F391D /* NutritionGrade.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		1959ED24214DB15D004F391D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1959ED2B214E620D004F391D /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		1959ED2E214E8A3E004F391D /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperExtensions.swift; path = OFF/Extensions/HelperExtensions.swift; sourceTree = SOURCE_ROOT; };
+		1959ED30214EEB0D004F391D /* NutritionGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionGrade.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				193B5A6D214C4AAF002474B1 /* Product.swift */,
 				193B5A6E214C4AAF002474B1 /* User.swift */,
 				1959ED2B214E620D004F391D /* Units.swift */,
+				1959ED30214EEB0D004F391D /* NutritionGrade.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				193B5A8B214C4AB0002474B1 /* JSONParameterEncoder.swift in Sources */,
 				193B5A87214C4AB0002474B1 /* NutrientsLevels.swift in Sources */,
 				193B5A8A214C4AB0002474B1 /* User.swift in Sources */,
+				1959ED31214EEB0D004F391D /* NutritionGrade.swift in Sources */,
 				193B5A88214C4AB0002474B1 /* Nutriments.swift in Sources */,
 				1959ED2F214E8A3E004F391D /* HelperExtensions.swift in Sources */,
 				193B5A96214C4AB0002474B1 /* NetworkRouter.swift in Sources */,

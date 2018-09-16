@@ -57,7 +57,7 @@ public class OFFProduct {
     //var packagingTagsAR: [String]?
     //GRADES
     public var novaGoup: String?
-    public var nutritionGrades: String?
+    public var nutritionGrades: NutriScore?
     public var nutrietLevels: NutrientLevels?
     public var nutriments: Nutriments?
     public var servingSize: String?
@@ -106,7 +106,7 @@ public class OFFProduct {
         quantity = try container.decodeIfPresent(String.self, forKey: .quantity)
         servingSize = try container.decodeIfPresent(String.self, forKey: .servingSize)
         firstPackagingCodeGeo = try container.decodeIfPresent(String.self, forKey: .firstPackagingCodeGeo)
-        nutritionGrades = try container.decodeIfPresent(String.self, forKey: .nutritionGrades)
+        nutritionGrades = try container.decodeIfPresent(NutriScore.self, forKey: .nutritionGrades)
         nutrietLevels = try container.decodeIfPresent(NutrientLevels.self, forKey: .nutrientLevels)
         nutriments = try container.decodeIfPresent(Nutriments.self, forKey: .nutriments)
         

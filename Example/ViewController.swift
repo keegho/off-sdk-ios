@@ -23,7 +23,7 @@ class ViewController: UIViewController {
                 print(product?.genericName ?? "NO NAME")
                 self.item = product!
                 print(self.item.brandsTags ?? "NO BRAND TAGS")
-                print(self.item.nutritionGrades ?? "NO NUTRI-SCORE")
+                print(self.item.nutritionGrades?.rawValue.uppercased() ?? "NO NUTRI-SCORE")
                 print(self.item.nutrietLevels?.salt?.rawValue ?? "NO SALT")
                 print(self.item.nutrietLevels?.sugar?.rawValue ?? "NOT SUGAR")
                 print(self.item.nutrietLevels?.fat?.rawValue ?? "NO FAT")
