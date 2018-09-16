@@ -16,18 +16,37 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
-        off.getProduct(code: "737628064502") { (product, msg) in
+        off.getProduct(code: "7616800833453") { (product, msg) in
             if product != nil {
                 print(product?.genericName ?? "NO NAME")
                 self.item = product!
+                print(self.item.brandsTags ?? "NO BRAND TAGS")
+                print(self.item.nutritionGrades ?? "NO NUTRI-SCORE")
+                print(self.item.nutrietLevels?.salt?.rawValue ?? "NO SALT")
+                print(self.item.nutrietLevels?.sugar?.rawValue ?? "NOT SUGAR")
+                print(self.item.nutrietLevels?.fat?.rawValue ?? "NO FAT")
+                print(self.item.nutrietLevels?.saturatedFats?.rawValue ?? "NOT SAT-FAT")
+                print(self.item.categoriesTags ?? "NO CATEGORIES")
+                print(self.item.categoriesTagsAR ?? "NO CATEGORIES AR")
+                print(self.item.categoriesTagsEN ?? "NO CATEGORIES EN")
+                print(self.item.additivesTags ?? "NO ADDITIVES")
+                print(self.item.additivesTagsEN ?? "NO ADDITIVES EN")
+                print(self.item.additivesTagsAR ?? "NO ADDITIVES AR")
+                print(self.item.ingredientsTags ?? "NO INGREDIENTS")
+                print(self.item.ingredientsTagsEN ?? "NO INGREDIENTS EN")
+                print(self.item.ingredientsTagsAR ?? "NO INGREDIENTS AR")
+                print(self.item.createdAt.stringDateShort)
                 print(self.item.code ?? "NO CODE")
+                print(self.item.nutriments?.energyUnit?.rawValue ?? "NO ENGERY UNIT")
+                print(self.item.imageIngredientsSmall?.absoluteString ?? "NO INGREDIENTS SMALL IMAGE")
                 print(self.item.nutriments?.carbohydrates ?? "NO CARBS")
             } else {
                 print(msg ?? "NO MESSAGE")
             }
         }
-        print(off.enviroment)
+        //print(off.enviroment)
     }
 
     override func didReceiveMemoryWarning() {

@@ -69,9 +69,9 @@ public class OFF {
                     }
                     do {
                         let apiResponse = try JSONDecoder().decode(ProductResponse.self, from: responseData)
-                        if apiResponse.status == 1 {
+                        if apiResponse.status == .found {
                             completion(apiResponse.product, nil)
-                        } else if apiResponse.status == 0{
+                        } else if apiResponse.status == .notFound{
                             completion(nil, "Product not found")
                         }
                     }catch(let error) {

@@ -8,12 +8,19 @@
 
 import Foundation
 
-public struct NutrientLevels {
-    public let salt: String?
-    public let saturatedFats: String?
-    public let fat: String?
-    public let sugar: String?
+public enum Levels: String, Codable {
+    case low
+    case moderate
+    case high
 }
+
+public struct NutrientLevels {
+    public let salt: Levels?
+    public let saturatedFats: Levels?
+    public let fat: Levels?
+    public let sugar: Levels?
+}
+
 
 extension NutrientLevels: Decodable {
     
@@ -26,10 +33,10 @@ extension NutrientLevels: Decodable {
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        salt = try container.decodeIfPresent(String.self, forKey: .salt)
-        fat = try container.decodeIfPresent(String.self, forKey: .fat)
-        saturatedFats = try container.decodeIfPresent(String.self, forKey: .saturatedFats)
-        sugar = try container.decodeIfPresent(String.self, forKey: .sugar)
+        salt = try container.decodeIfPresent(Levels.self, forKey: .salt)
+        fat = try container.decodeIfPresent(Levels.self, forKey: .fat)
+        saturatedFats = try container.decodeIfPresent(Levels.self, forKey: .saturatedFats)
+        sugar = try container.decodeIfPresent(Levels.self, forKey: .sugar)
     }
     
 }
