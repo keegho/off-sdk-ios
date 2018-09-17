@@ -6,18 +6,17 @@ More features will be added soon this is just an initial start...
 `pod 'OpenFoodFactsSDK', :git => 'https://github.com/keegho/off-sdk-ios.git'`
 ## Install using [carthage](https://github.com/Carthage/Carthage)
 Install [Homebrew](https://brew.sh/)
-
-`$ brew update`
-
-`$ brew install carthage`
-
+```
+$ brew update
+$ brew install carthage
+```
 Create Cartfile in your project root folder and add this to it.
 
-`github "keegho/off-sdk-ios"`
+```github "keegho/off-sdk-ios"```
 
 Then in your terminal project root folder type.
 
-`carthage update`
+```carthage update```
 
 Now make sure to drag-and-drop the built frameworks into your Xcode project and import them in the source files that require them.
 ## How to use the SDK?
