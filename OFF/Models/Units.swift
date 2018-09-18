@@ -9,7 +9,7 @@
 import Foundation
 
 
-public enum EnergyUnitTypes: String, Codable {
+/*public enum EnergyUnitTypes: String, Codable {
     case cal
     case Cal
     case kcal
@@ -29,4 +29,4 @@ public enum MainUnitTypes: String, Codable {
     //case pr = "%"
     case iu
     case IU
-}
+}*/

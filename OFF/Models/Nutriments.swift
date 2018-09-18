@@ -13,12 +13,12 @@ public struct Nutriments {
     public let energy: String?
     public let energyServing: String?
     public let energy100g: String?
-    public let energyUnit: EnergyUnitTypes?
+    public let energyUnit: String?
     
     public let sugar: String?
     public let sugarServing: String?
     public let sugar100g: String?
-    public let sugarUnit: MainUnitTypes?
+    public let sugarUnit: String?
     
     public let carbohydrates: String?
     public let carbohydratesServing: String?
@@ -28,32 +28,32 @@ public struct Nutriments {
     public let sodium: String?
     public let sodiumServing: String?
     public let sodium100g: String?
-    public let sodiumUnit: MainUnitTypes?
+    public let sodiumUnit: String?
 
     public let proteins: String?
     public let proteinsServing: String?
     public let proteins100g: String?
-    public let proteinsUnit: MainUnitTypes?
+    public let proteinsUnit: String?
     
     public let fat: String?
     public let fatServing: String?
     public let fat100g: String?
-    public let fatUnit: MainUnitTypes?
+    public let fatUnit: String?
     
     public let saturatedFat: String?
     public let saturatedFatServing: String?
     public let saturatedFat100g: String?
-    public let saturatedFatUnit: MainUnitTypes?
+    public let saturatedFatUnit: String?
     
     public let fiber: String?
     public let fiberServing: String?
     public let fiber100g: String?
-    public let fiberUnit: MainUnitTypes?
+    public let fiberUnit: String?
     
     public let salt: String?
     public let saltServing: String?
     public let salt100g: String?
-    public let saltUnit: MainUnitTypes?
+    public let saltUnit: String?
     
 }
 
@@ -116,7 +116,7 @@ extension Nutriments: Decodable {
         }catch DecodingError.typeMismatch {
             energyServing = String(try container.decode(Double.self, forKey: .energyServing))
         }
-        energyUnit = try container.decodeIfPresent(EnergyUnitTypes.self, forKey: .energyUnit)
+        energyUnit = try container.decodeIfPresent(String.self, forKey: .energyUnit)
         do {
             sugar = try container.decodeIfPresent(String.self, forKey: .sugar)
         }catch DecodingError.typeMismatch {
@@ -132,7 +132,7 @@ extension Nutriments: Decodable {
         }catch DecodingError.typeMismatch {
             sugar100g = String(try container.decode(Double.self, forKey: .sugar100g))
         }
-        sugarUnit = try container.decodeIfPresent(MainUnitTypes.self, forKey: .sugarUnit)
+        sugarUnit = try container.decodeIfPresent(String.self, forKey: .sugarUnit)
         do {
             carbohydrates = try container.decodeIfPresent(String.self, forKey: .carbohydrates)
         }catch DecodingError.typeMismatch {
@@ -164,7 +164,7 @@ extension Nutriments: Decodable {
         }catch DecodingError.typeMismatch {
             sodium100g = String(try container.decode(Double.self, forKey: .sodium100g))
         }
-        sodiumUnit = try container.decodeIfPresent(MainUnitTypes.self, forKey: .sodiumUnit)
+        sodiumUnit = try container.decodeIfPresent(String.self, forKey: .sodiumUnit)
         do {
             proteins = try container.decodeIfPresent(String.self, forKey: .proteins)
         }catch DecodingError.typeMismatch {
@@ -180,7 +180,7 @@ extension Nutriments: Decodable {
         }catch DecodingError.typeMismatch {
             proteins100g = String(try container.decode(Double.self, forKey: .proteins100g))
         }
-        proteinsUnit = try container.decodeIfPresent(MainUnitTypes.self, forKey: .proteinsUnit)
+        proteinsUnit = try container.decodeIfPresent(String.self, forKey: .proteinsUnit)
         do {
             fat = try container.decodeIfPresent(String.self, forKey: .fat)
         }catch DecodingError.typeMismatch {
@@ -196,7 +196,7 @@ extension Nutriments: Decodable {
         }catch DecodingError.typeMismatch {
             fat100g = String(try container.decode(Double.self, forKey: .fat100g))
         }
-        fatUnit = try container.decodeIfPresent(MainUnitTypes.self, forKey: .fatUnit)
+        fatUnit = try container.decodeIfPresent(String.self, forKey: .fatUnit)
         do {
             saturatedFat = try container.decodeIfPresent(String.self, forKey: .saturatedFat)
         }catch DecodingError.typeMismatch {
@@ -212,7 +212,7 @@ extension Nutriments: Decodable {
         }catch DecodingError.typeMismatch {
             saturatedFat100g = String(try container.decode(Double.self, forKey: .saturatedFat100g))
         }
-        saturatedFatUnit = try container.decodeIfPresent(MainUnitTypes.self, forKey: .saturatedFatUnit)
+        saturatedFatUnit = try container.decodeIfPresent(String.self, forKey: .saturatedFatUnit)
         do {
             fiber = try container.decodeIfPresent(String.self, forKey: .fiber)
         }catch DecodingError.typeMismatch {
@@ -228,7 +228,7 @@ extension Nutriments: Decodable {
         }catch DecodingError.typeMismatch {
             fiber100g = String(try container.decode(Double.self, forKey: .fiber100g))
         }
-        fiberUnit = try container.decodeIfPresent(MainUnitTypes.self, forKey: .fiberUnit)
+        fiberUnit = try container.decodeIfPresent(String.self, forKey: .fiberUnit)
         do {
             salt = try container.decodeIfPresent(String.self, forKey: .salt)
         }catch DecodingError.typeMismatch {
@@ -244,7 +244,7 @@ extension Nutriments: Decodable {
         }catch DecodingError.typeMismatch {
             salt100g = String(try container.decode(Double.self, forKey: .salt100g))
         }
-        saltUnit = try container.decodeIfPresent(MainUnitTypes.self, forKey: .saltUnit)
+        saltUnit = try container.decodeIfPresent(String.self, forKey: .saltUnit)
     }
     
 }

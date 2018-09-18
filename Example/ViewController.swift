@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         
-        off.getProduct(code: "7616800833453") { (product, msg) in
+        off.getProduct(code: "8595229910633") { (product, msg) in
             if product != nil {
                 print(product?.genericName ?? "NO NAME")
                 self.item = product!
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
                 print(self.item.ingredientsTagsAR ?? "NO INGREDIENTS AR")
                 print(self.item.createdAt.stringDateShort)
                 print(self.item.code ?? "NO CODE")
-                print(self.item.nutriments?.energyUnit?.rawValue ?? "NO ENGERY UNIT")
+                print(self.item.nutriments?.energyUnit ?? "NO ENGERY UNIT")
                 print(self.item.imageIngredientsSmall?.absoluteString ?? "NO INGREDIENTS SMALL IMAGE")
                 print(self.item.nutriments?.carbohydrates ?? "NO CARBS")
             } else {
