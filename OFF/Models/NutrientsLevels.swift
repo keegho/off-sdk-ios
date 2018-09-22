@@ -14,7 +14,7 @@ public enum Levels: String, Codable {
     case high
 }
 
-public struct NutrientLevels {
+public struct NutrientLevels: Codable {
     public let salt: Levels?
     public let saturatedFats: Levels?
     public let fat: Levels?
@@ -22,7 +22,7 @@ public struct NutrientLevels {
 }
 
 
-extension NutrientLevels: Decodable {
+extension NutrientLevels {
     
     private enum CodingKeys: String, CodingKey {
         case salt = "salt"
@@ -37,6 +37,10 @@ extension NutrientLevels: Decodable {
         fat = try container.decodeIfPresent(Levels.self, forKey: .fat)
         saturatedFats = try container.decodeIfPresent(Levels.self, forKey: .saturatedFats)
         sugar = try container.decodeIfPresent(Levels.self, forKey: .sugar)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        
     }
     
 }

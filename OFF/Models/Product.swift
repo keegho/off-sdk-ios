@@ -8,13 +8,10 @@
 
 import Foundation
 
-//public struct ProductManager {
-//    static var status: ResponseStatus = .notFound
-//}
 
 public struct ProductResponse {
     public let statusVerbose: String
-    public let code: String
+    public let code: String?
     public var status: ResponseStatus = .notFound
     public let product: OFFProduct?
 }
@@ -28,15 +25,18 @@ public enum ResponseStatus {
 /**
  A Open food facts product model class
 */
-public class OFFProduct {
+public class OFFProduct: Codable {
     public var code: String!
     public var createdAt: Double!
     public var lastModifiedBy: String?
     public var genericName: String?
     public var productName: String?
+    public var countriesText: String?
     public var countriesTags: [String]?
     public var countriesTagsAR: [String]?
+    public var brandsText: String?
     public var brandsTags: [String]?
+    public var storesText: String?
     public var storesTags: [String]?
     //INGREDIENTS
     public var ingredientText: String?
@@ -48,24 +48,31 @@ public class OFFProduct {
     public var creator: String!
     public var quantity: String?
     public var firstPackagingCodeGeo: String?
+
     //TRACES LABELS PACKAGING
+    //Traces
+    public var tracesText: String?
     public var tracesTags: [String]?
     public var tracesTagsAR: [String]?
+    public var labelsText: String?
     public var labelsTags: [String]?
     public var labelsTagsAR: [String]?
     public var packagingTags: [String]?
     //var packagingTagsAR: [String]?
     //GRADES
+    public var nutritionDataPer: String?
     public var novaGoup: String?
     public var nutritionGrades: NutriScore?
     public var nutrietLevels: NutrientLevels?
     public var nutriments: Nutriments?
     public var servingSize: String?
     //ADDITIVES
+    public var additivesText: String?
     public var additivesTags: [String]?
     public var additivesTagsEN: [String]?
     public var additivesTagsAR: [String]?
     //CATEGORIES
+    public var categoriesText: String?
     public var categoriesTags: [String]?
     public var categoriesTagsEN: [String]?
     public var categoriesTagsAR: [String]?
@@ -76,7 +83,7 @@ public class OFFProduct {
     public var imageFrontThumb: URL?
     public var imageNutritionThumb: URL?
     public var imageIngredientsThumb: URL?
-    
+
 
     public init(){}
     
@@ -84,7 +91,7 @@ public class OFFProduct {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         code = try container.decode(String.self, forKey: .code)
         createdAt = try container.decode(Double.self, forKey: .createdAt)
-        lastModifiedBy = try container.decode(String.self, forKey: .lastModifiedBy)
+        lastModifiedBy = try container.decodeIfPresent(String.self, forKey: .lastModifiedBy)
         genericName = try container.decodeIfPresent(String.self, forKey: .genericName)
         productName = try container.decodeIfPresent(String.self, forKey: .productName)
         do {
@@ -92,7 +99,9 @@ public class OFFProduct {
         }catch DecodingError.typeMismatch {
             novaGoup = String(try container.decode(Int.self, forKey: .novaGroup))
         }
+        brandsText = try container.decodeIfPresent(String.self, forKey: .brandsText)
         brandsTags = try container.decodeIfPresent([String].self, forKey: .brandsTags)
+        storesText = try container.decodeIfPresent(String.self, forKey: .storesText)
         storesTags = try container.decodeIfPresent([String].self, forKey: .storesTags)
         ingredientText = try container.decodeIfPresent(String.self, forKey: .ingredientText)
         ingredientsTextEN = try container.decodeIfPresent(String.self, forKey: .ingredientsTextEN)
@@ -109,7 +118,11 @@ public class OFFProduct {
         nutritionGrades = try container.decodeIfPresent(NutriScore.self, forKey: .nutritionGrades)
         nutrietLevels = try container.decodeIfPresent(NutrientLevels.self, forKey: .nutrientLevels)
         nutriments = try container.decodeIfPresent(Nutriments.self, forKey: .nutriments)
-        
+        nutritionDataPer = try container.decodeIfPresent(String.self, forKey: .nutritionDataPer)
+        tracesText = try container.decodeIfPresent(String.self, forKey: .tracesText)
+        labelsText = try container.decodeIfPresent(String.self, forKey: .labelsText)
+        additivesText = try container.decodeIfPresent(String.self, forKey: .additivesText)
+        countriesText = try container.decodeIfPresent(String.self, forKey: .countriesText)
         countriesTagsAR = try container.decodeIfPresent([String].self, forKey: .countryTags)?.filter{$0.contains(Languages.ar.rawValue)}
         countriesTagsAR = countriesTagsAR != nil && (countriesTagsAR?.isEmpty)! ? nil : countriesTagsAR
         countriesTags = try container.decodeIfPresent([String].self, forKey: .countryTags)?.filter{$0.contains(Languages.en.rawValue)}
@@ -137,6 +150,7 @@ public class OFFProduct {
         categoriesTagsEN = categoriesTagsEN != nil && (categoriesTagsEN?.isEmpty)! ? nil : categoriesTagsEN
         categoriesTagsAR = try container.decodeIfPresent([String].self, forKey: .categoriesTags)?.filter{$0.contains(Languages.ar.rawValue)}
         categoriesTagsAR = categoriesTagsAR != nil && (categoriesTagsAR?.isEmpty)! ? nil : categoriesTagsAR
+        categoriesText = try container.decodeIfPresent(String.self, forKey: .categoriesText)
         
         //IMAGES
         imageFrontSmall = try container.decodeIfPresent(URL.self, forKey: .imageFrontSmall)
@@ -147,9 +161,10 @@ public class OFFProduct {
         imageIngredientsThumb = try container.decodeIfPresent(URL.self, forKey: .imageIngredientsThumb)
         
     }
+    
 }
 
-extension OFFProduct: Decodable {
+extension OFFProduct {
     
     private enum CodingKeys: String, CodingKey {
         case code = "code"
@@ -157,8 +172,11 @@ extension OFFProduct: Decodable {
         case lastModifiedBy = "last_modified_by"
         case genericName = "generic_name"
         case productName = "product_name"
+        case countriesText = "countries"
         case countryTags = "countries_tags"
+        case brandsText = "brands"
         case brandsTags = "brands_tags"
+        case storesText = "stores"
         case storesTags = "stores_tags"
         case ingredientsTextEN = "ingredients_text_en"
         case ingredientsTextAR = "ingredients_text_ar"
@@ -168,6 +186,8 @@ extension OFFProduct: Decodable {
         case quantity = "quantity"
         case servingSize = "serving_size"
         case firstPackagingCodeGeo = "first_packaging_code_geo"
+        case tracesText = "traces"
+        case labelsText = "labels"
         case tracesTags = "traces_tags"
         case labelsTags = "labels_tags"
         case packagingTags = "packaging_tags"
@@ -175,9 +195,11 @@ extension OFFProduct: Decodable {
         case nutritionGrades = "nutrition_grades"
         case nutrientLevels = "nutrient_levels"
         case nutriments = "nutriments"
+        case nutritionDataPer = "nutrition_data_per"
         case additivesTag = "additives_tags"
+        case categoriesText = "categories"
         case categoriesTags = "categories_hierarchy"
-        
+        case additivesText = "additives"
         //IMAGES
         case imageFrontSmall = "image_front_small_url"
         case imageFrontThumb = "image_front_thumb_url"
@@ -188,7 +210,30 @@ extension OFFProduct: Decodable {
         
     }
     
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(genericName, forKey: .genericName)
+        try container.encode(productName, forKey: .productName)
+        try container.encode(brandsText, forKey: .brandsText)
+        try container.encode(countriesText, forKey: .countriesText)
+        try container.encode(storesText, forKey: .storesText)
+        try container.encode(ingredientText, forKey: .ingredientText)
+        try container.encode(quantity, forKey: .quantity)
+        try container.encode(servingSize, forKey: .servingSize)
+        try container.encode(tracesText, forKey: .tracesText)
+        try container.encode(additivesText, forKey: .additivesText)
+        try container.encode(labelsText, forKey: .labelsText)
+        try container.encode(categoriesText, forKey: .categoriesText)
+        try container.encode(nutriments, forKey: .nutriments)
+        try container.encode(nutritionDataPer, forKey: .nutritionDataPer)
+        try container.encode(nutrietLevels, forKey: .nutrientLevels)
+        try container.encode(nutritionGrades, forKey: .nutritionGrades)
+    
+    }
+    
 }
+
+
 
 extension ProductResponse: Decodable {
     
@@ -208,7 +253,7 @@ extension ProductResponse: Decodable {
         } else if statusReply == 1 {
             status = .found
         }
-        code = try container.decode(String.self, forKey: .code)
+        code = try container.decodeIfPresent(String.self, forKey: .code)
         statusVerbose = try container.decode(String.self, forKey: .statusVerbose)
         product = try container.decodeIfPresent(OFFProduct.self, forKey: .product)
     }

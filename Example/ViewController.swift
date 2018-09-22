@@ -11,14 +11,31 @@ import OpenFoodFactsSDK
 
 class ViewController: UIViewController {
 
+    @IBOutlet var productImage: UIImageView!
     private let off = OFF()
     private var item = OFFProduct()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        off.getProduct(code: "8595229910633") { (product, msg) in
+        item.code = "1"
+        item.genericName = "Golden Virginia Tobacco"
+        item.productName = "Golden Virginia Classic"
+        item.brandsText = "Golden Viginia"
+        item.labelsText = "Causes Death, Die young"
+        item.quantity = "50g"
+
+        off.addProduct(product: item) { (status, msg) in
+            switch status {
+            case .success:
+                print("ADDED")
+            case .failure:
+                print("NOT ADDED")
+                
+            }
+         }
+        
+        /*off.getProduct(code: "1") { (product, msg) in
             if product != nil {
                 print(product?.genericName ?? "NO NAME")
                 self.item = product!
@@ -42,10 +59,16 @@ class ViewController: UIViewController {
                 print(self.item.nutriments?.energyUnit ?? "NO ENGERY UNIT")
                 print(self.item.imageIngredientsSmall?.absoluteString ?? "NO INGREDIENTS SMALL IMAGE")
                 print(self.item.nutriments?.carbohydrates ?? "NO CARBS")
+                if product?.imageNutritionSmall != nil {
+                    self.productImage.downloadImage(url: (product?.imageNutritionSmall)!)
+                }
+                if product?.imageFrontSmall != nil {
+                    self.productImage.downloadImage(url: (product?.imageFrontSmall)!)
+                }
             } else {
                 print(msg ?? "NO MESSAGE")
             }
-        }
+        }*/
         //print(off.enviroment)
     }
 

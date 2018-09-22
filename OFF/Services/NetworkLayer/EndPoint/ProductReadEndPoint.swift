@@ -8,13 +8,15 @@
 
 import Foundation
 
-enum ProductApi {
+enum ProductReadApi {
     case getScannedProduct(code: String)
 }
 
-extension ProductApi: EndPointType {
+
+extension ProductReadApi: EndPointType {
+
     
-    var enviromentBasedUrl : String {
+    var readEnviromentBasedUrl : String {
         switch NetworkManager.enviroment {
         case .testing:
             switch NetworkManager.languageURL {
@@ -44,14 +46,16 @@ extension ProductApi: EndPointType {
     
     
     var baseUrl: URL {
-        guard let url = URL(string: enviromentBasedUrl) else {fatalError("baseURL could not be configured.")}
+        guard let url = URL(string: readEnviromentBasedUrl) else {fatalError("readBaseURL could not be configured.")}
         return url
     }
+    
     
     var path: String {
         switch self {
         case .getScannedProduct(let code):
             return code
+
         }
     }
     

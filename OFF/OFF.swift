@@ -8,9 +8,15 @@
 
 import Foundation
 
+public enum WriteStatus {
+    case success
+    case failure
+}
+
 public class OFF {
     
-    private let offProduct = Router<ProductApi>()
+    private let offRead = Router<ProductReadApi>()
+    private let offWrite = Router<ProductWriteApi>()
     
     ///Choose the API enviroment for testing login is needed
     public var enviroment: NetworkEnviroment
@@ -30,6 +36,28 @@ public class OFF {
             return NetworkManager.apiKey
         } set(newKey) {
             NetworkManager.apiKey = newKey
+        }
+        
+    }
+    
+    ///Choose username "USERABLE FOR WRITE"
+    public var username: String
+    {
+        get {
+            return NetworkManager.username
+        } set(newKey) {
+            NetworkManager.username = newKey
+        }
+        
+    }
+    
+    ///Choose password "USERABLE FOR WRITE"
+    public var password: String
+    {
+        get {
+            return NetworkManager.password
+        } set(newKey) {
+            NetworkManager.password = newKey
         }
         
     }
@@ -54,7 +82,7 @@ public class OFF {
      
      */
     public func getProduct(code: String, completion:@escaping(_ product:OFFProduct?, _ err: String?) ->()){
-        offProduct.request(.getScannedProduct(code: code)) { (data, response, err) in
+        offRead.request(.getScannedProduct(code: code), requestType: .read) { (data, response, err) in
             if err != nil {
                 completion(nil, "Please check your network connection")
             }
@@ -83,4 +111,35 @@ public class OFF {
             }
         }
     }
+    
+    public func addProduct(product: OFFProduct, completion:@escaping(_ status:WriteStatus, _ err: String?) ->()){
+        offWrite.request(.addOFFProduct(product: product), requestType: .write) { (data, response, err) in
+            if err != nil {
+                completion(.failure, "Please check your network connection")
+            }
+            if let reponse = response as? HTTPURLResponse {
+                let result =  handelNetworkResponse(reponse)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(.failure, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let apiResponse = try JSONDecoder().decode(ProductResponse.self, from: responseData)
+                        if apiResponse.status == .found {
+                            completion(.success, "Poduct has been successfully added")
+                        } else {
+                            completion(.failure, "Error occured while adding product")
+                        }
+                    }catch {
+                        completion(.failure, "\(error.localizedDescription)")
+                    }
+                case .failure(let failureError):
+                    completion(.failure, failureError)
+                }
+            }
+        }
+    }
+    
 }

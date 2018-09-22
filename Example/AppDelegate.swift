@@ -18,8 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        off.enviroment = .production
-        off.lanugageUrl = .world
+       /* off.enviroment = .testing
+        off.username = "off"
+        off.password = "off"
+        off.lanugageUrl = .world*/
+        
+         off.enviroment = .production
+         off.username = "keegho"
+         off.password = "kegham18"
+         off.lanugageUrl = .world
         
         return true
     }

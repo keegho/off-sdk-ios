@@ -16,7 +16,7 @@
 		193B5A8C214C4AB0002474B1 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B5A73214C4AB0002474B1 /* ParameterEncoding.swift */; };
 		193B5A8D214C4AB0002474B1 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B5A74214C4AB0002474B1 /* URLParameterEncoder.swift */; };
 		193B5A8E214C4AB0002474B1 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B5A76214C4AB0002474B1 /* EndPoint.swift */; };
-		193B5A8F214C4AB0002474B1 /* ProductEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B5A77214C4AB0002474B1 /* ProductEndPoint.swift */; };
+		193B5A8F214C4AB0002474B1 /* ProductReadEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B5A77214C4AB0002474B1 /* ProductReadEndPoint.swift */; };
 		193B5A90214C4AB0002474B1 /* UserEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B5A78214C4AB0002474B1 /* UserEndPoint.swift */; };
 		193B5A91214C4AB0002474B1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B5A7A214C4AB0002474B1 /* NetworkManager.swift */; };
 		193B5A93214C4AB0002474B1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B5A7D214C4AB0002474B1 /* HTTPMethod.swift */; };
@@ -39,6 +39,8 @@
 		1959ED2C214E620D004F391D /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959ED2B214E620D004F391D /* Units.swift */; };
 		1959ED2F214E8A3E004F391D /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959ED2E214E8A3E004F391D /* HelperExtensions.swift */; };
 		1959ED31214EEB0D004F391D /* NutritionGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959ED30214EEB0D004F391D /* NutritionGrade.swift */; };
+		1978DE8E21528717007BCAA9 /* ProductWriteEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1978DE8D21528717007BCAA9 /* ProductWriteEndPoint.swift */; };
+		1978DE9021567F7E007BCAA9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1978DE8F21567F7E007BCAA9 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +65,7 @@
 		193B5A73214C4AB0002474B1 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		193B5A74214C4AB0002474B1 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 		193B5A76214C4AB0002474B1 /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
-		193B5A77214C4AB0002474B1 /* ProductEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductEndPoint.swift; sourceTree = "<group>"; };
+		193B5A77214C4AB0002474B1 /* ProductReadEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductReadEndPoint.swift; sourceTree = "<group>"; };
 		193B5A78214C4AB0002474B1 /* UserEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEndPoint.swift; sourceTree = "<group>"; };
 		193B5A7A214C4AB0002474B1 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		193B5A7D214C4AB0002474B1 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -88,6 +90,8 @@
 		1959ED2B214E620D004F391D /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		1959ED2E214E8A3E004F391D /* HelperExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperExtensions.swift; path = OFF/Extensions/HelperExtensions.swift; sourceTree = SOURCE_ROOT; };
 		1959ED30214EEB0D004F391D /* NutritionGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionGrade.swift; sourceTree = "<group>"; };
+		1978DE8D21528717007BCAA9 /* ProductWriteEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWriteEndPoint.swift; sourceTree = "<group>"; };
+		1978DE8F21567F7E007BCAA9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 		193B5A5F214C4A3F002474B1 /* OFF */ = {
 			isa = PBXGroup;
 			children = (
+				1978DE9121568193007BCAA9 /* Utilities */,
 				1959ED2D214E89DF004F391D /* Extensions */,
 				193B5AB5214C7844002474B1 /* OFF.swift */,
 				193B5A6A214C4AAF002474B1 /* Models */,
@@ -200,7 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				193B5A76214C4AB0002474B1 /* EndPoint.swift */,
-				193B5A77214C4AB0002474B1 /* ProductEndPoint.swift */,
+				193B5A77214C4AB0002474B1 /* ProductReadEndPoint.swift */,
+				1978DE8D21528717007BCAA9 /* ProductWriteEndPoint.swift */,
 				193B5A78214C4AB0002474B1 /* UserEndPoint.swift */,
 			);
 			path = EndPoint;
@@ -262,6 +268,14 @@
 			);
 			name = Extensions;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		1978DE9121568193007BCAA9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1978DE8F21567F7E007BCAA9 /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,14 +422,16 @@
 			files = (
 				193B5A91214C4AB0002474B1 /* NetworkManager.swift in Sources */,
 				193B5A8D214C4AB0002474B1 /* URLParameterEncoder.swift in Sources */,
+				1978DE8E21528717007BCAA9 /* ProductWriteEndPoint.swift in Sources */,
 				193B5A93214C4AB0002474B1 /* HTTPMethod.swift in Sources */,
 				193B5AB6214C7844002474B1 /* OFF.swift in Sources */,
 				193B5A8C214C4AB0002474B1 /* ParameterEncoding.swift in Sources */,
+				1978DE9021567F7E007BCAA9 /* Constants.swift in Sources */,
 				193B5A97214C4AB0002474B1 /* Router.swift in Sources */,
 				193B5A8E214C4AB0002474B1 /* EndPoint.swift in Sources */,
 				193B5A94214C4AB0002474B1 /* HTTPTask.swift in Sources */,
 				193B5AB4214C4BB8002474B1 /* Languages.swift in Sources */,
-				193B5A8F214C4AB0002474B1 /* ProductEndPoint.swift in Sources */,
+				193B5A8F214C4AB0002474B1 /* ProductReadEndPoint.swift in Sources */,
 				193B5A95214C4AB0002474B1 /* NetworkLogger.swift in Sources */,
 				193B5A89214C4AB0002474B1 /* Product.swift in Sources */,
 				1959ED2C214E620D004F391D /* Units.swift in Sources */,

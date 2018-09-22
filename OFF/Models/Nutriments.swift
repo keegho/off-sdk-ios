@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Nutriments {
+public struct Nutriments: Codable {
     
     public let energy: String?
     public let energyServing: String?
@@ -57,7 +57,7 @@ public struct Nutriments {
     
 }
 
-extension Nutriments: Decodable {
+extension Nutriments {
     
     private enum CodingKeys: String, CodingKey {
         case energy = "energy"
@@ -245,6 +245,10 @@ extension Nutriments: Decodable {
             salt100g = String(try container.decode(Double.self, forKey: .salt100g))
         }
         saltUnit = try container.decodeIfPresent(String.self, forKey: .saltUnit)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        
     }
     
 }

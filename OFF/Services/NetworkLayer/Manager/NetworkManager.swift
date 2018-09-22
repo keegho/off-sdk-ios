@@ -13,6 +13,8 @@ struct NetworkManager {
     static var enviroment: NetworkEnviroment = .production
     static var languageURL: LanguageURL = .world
     static var apiKey = ""
+    static var username = ""
+    static var password = ""
 
 }
 

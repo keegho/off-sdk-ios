@@ -8,13 +8,18 @@
 
 import Foundation
 
+enum RequestType {
+    case read
+    case write
+}
+
 class Router<EndPoint: EndPointType>: NetworkRouter {
     
     private var task: URLSessionTask?
-    func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion) {
+    func request(_ route: EndPoint, requestType: RequestType, completion: @escaping NetworkRouterCompletion) {
         let session = URLSession.shared
         do {
-            let request = try self.buildRequest(from: route)
+            let request = try self.buildRequest(from: route, type: requestType)
             task = session.dataTask(with: request, completionHandler: { (data, response, error) in
                 completion(data, response, error)
             })
@@ -23,32 +28,59 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         }
         self.task?.resume()
     }
+
     
     func cancel() {
         self.task?.cancel()
     }
     
-    fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
+    fileprivate func buildRequest(from route: EndPoint, type: RequestType) throws -> URLRequest {
         
-        var request = URLRequest(url: route.baseUrl.appendingPathComponent(route.path).appendingPathExtension("json"), cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0)
-        print(request.url ?? "NIL")
-        request.httpMethod = route.httpMethod.rawValue
-        do {
-            switch route.task {
-            case .request:
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            case .requsetParameters(let bodyParameters, let urlParameters):
-                try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
-            case .requestParametersAndHeaders(let bodyParameters, let urlParameters, let additionalHeaders):
-                self.additionalHeaders(additionalHeaders, request: &request)
-                try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
+        
+        switch type {
+        case .read:
+            var request = URLRequest(url: route.baseUrl.appendingPathComponent(route.path).appendingPathExtension("json"), cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0)
+            print(request.url ?? "NIL")
+            request.httpMethod = route.httpMethod.rawValue
+            do {
+                switch route.task {
+                case .request:
+                    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                case .requsetParameters(let bodyParameters, let urlParameters):
+                    try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
+                case .requestParametersAndHeaders(let bodyParameters, let urlParameters, let additionalHeaders):
+                    self.additionalHeaders(additionalHeaders, request: &request)
+                    try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
+                }
+                
+                return request
+                
+            }catch {
+                throw error
             }
-            
-            return request
-            
-        }catch {
-            throw error
+        case .write:
+            var request = URLRequest(url: route.baseUrl, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 30.0)
+            print(request.url ?? "NIL")
+            request.httpMethod = route.httpMethod.rawValue
+            do {
+                switch route.task {
+                case .request:
+                    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                case .requsetParameters(let bodyParameters, let urlParameters):
+                    try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
+                case .requestParametersAndHeaders(let bodyParameters, let urlParameters, let additionalHeaders):
+                    self.additionalHeaders(additionalHeaders, request: &request)
+                    try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
+                }
+                
+                return request
+                
+            }catch {
+                throw error
+                
+            }
         }
+
         
     }
     
