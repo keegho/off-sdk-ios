@@ -20,7 +20,7 @@ Then in your terminal project root folder type.
 
 Now make sure to drag-and-drop the built frameworks into your Xcode project and import them in the source files that require them.
 ## How to use the SDK?
-Example:
+Example Read:
 ```swift
 import OpenFoodFactsSDK
 //In the AppDelegate.swift setup your enviroment and url prefix
@@ -50,6 +50,49 @@ override func viewDidLoad() {
                 print(item?.genericName ?? "NO PRODUCT NAME")
             } else {
                 print(message ?? "NO MESSAGE")
+            }
+     }
+}
+Example Write:
+```swift
+import OpenFoodFactsSDK
+//In the AppDelegate.swift setup your enviroment and url prefix
+    private let off = OFF()
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        off.enviroment = .production   //.production . testing  //Default production
+        off.lanugageUrl = .fr          //.world .fr .ar .de     //Default world
+        off.username = "foo"           // username needed when editing
+        off.password = "bar"           // password needed when editing
+        
+        return true
+    }
+
+//Then in the ViewController
+import OpenFoodFactsSDK
+
+private let off = OFF() 
+private var item = OFFProduct()
+
+override func viewDidLoad() {
+    super.viewDidLoad()
+    
+        item.code = "1"
+        item.genericName = "Golden Virginia Tobacco"
+        item.productName = "Golden Virginia Classic"
+        item.brandsText = "Golden Viginia"
+        item.labelsText = "Causes Death, Die young"
+        item.quantity = "50g"
+    
+    //Call add product closure function
+    off.addProduct(product: item) { (status, msg) in
+            switch status {
+            case .success:
+                print("ADDED")
+            case .failure:
+                print("NOT ADDED")
+                
             }
      }
 }
