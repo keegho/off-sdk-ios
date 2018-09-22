@@ -53,6 +53,7 @@ override func viewDidLoad() {
             }
      }
 }
+```
 Example Write:
 ```swift
 import OpenFoodFactsSDK
@@ -96,3 +97,4 @@ override func viewDidLoad() {
             }
      }
 }
+```
