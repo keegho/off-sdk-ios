@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Nutriments: Codable {
+public struct Nutriments: Decodable {
     
     public let energy: String?
     public let energyServing: String?
@@ -247,9 +247,9 @@ extension Nutriments {
         saltUnit = try container.decodeIfPresent(String.self, forKey: .saltUnit)
     }
     
-    public func encode(to encoder: Encoder) throws {
+    /*public func encode(to encoder: Encoder) throws {
         
-    }
+    }*/
     
 }
 

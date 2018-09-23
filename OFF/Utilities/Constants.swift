@@ -10,7 +10,7 @@ import Foundation
 
 struct Constants {
     
-    static let username = "username"
+    static let username = "user_id"
     static let password = "password"
     
     struct OffProduct {

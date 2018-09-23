@@ -35,7 +35,7 @@ class ViewController: UIViewController {
             }
          }
         
-        /*off.getProduct(code: "1") { (product, msg) in
+       /* off.getProduct(code: "1") { (product, msg) in
             if product != nil {
                 print(product?.genericName ?? "NO NAME")
                 self.item = product!
@@ -65,6 +65,8 @@ class ViewController: UIViewController {
                 if product?.imageFrontSmall != nil {
                     self.productImage.downloadImage(url: (product?.imageFrontSmall)!)
                 }
+                print(product?.ar?.genericName ?? "NO ARABIC NAME")
+                print(product?.ar?.ingredients ?? "NO ARABIC INGREDIENTS")
             } else {
                 print(msg ?? "NO MESSAGE")
             }

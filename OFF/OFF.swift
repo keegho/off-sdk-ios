@@ -71,6 +71,15 @@ public class OFF {
         }
     }
     
+    ///Choose language of the product you will display
+    public var productLanguage: ProductLang {
+        get {
+            return LanguageManager.productLanguage
+        }set(newProductLanguage) {
+            LanguageManager.productLanguage = newProductLanguage
+        }
+    }
+    
     public init(){}
     
     /**

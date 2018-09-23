@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          off.username = "keegho"
          off.password = "kegham18"
          off.lanugageUrl = .world
+         off.productLanguage = .ar
         
         return true
     }

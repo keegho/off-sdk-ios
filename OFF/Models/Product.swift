@@ -9,6 +9,74 @@
 import Foundation
 
 
+public struct Ar: Decodable {
+    public var genericName: String?
+    public var productName: String?
+    public var ingredients: String?
+
+    
+    private enum CodingKeys: String, CodingKey {
+        case genericName = "generic_name_ar"
+        case productName = "product_name_ar"
+        case ingredients = "ingredients_text_ar"
+
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        genericName = try container.decodeIfPresent(String.self, forKey: .genericName)
+        productName = try container.decodeIfPresent(String.self, forKey: .productName)
+        ingredients = try container.decodeIfPresent(String.self, forKey: .ingredients)
+    }
+    
+}
+
+public struct En: Decodable {
+    
+    public var genericName: String?
+    public var productName: String?
+    public var ingredients: String?
+    
+    
+    private enum CodingKeys: String, CodingKey {
+        case genericName = "generic_name_en"
+        case productName = "product_name_en"
+        case ingredients = "ingredients_text_en"
+        
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        genericName = try container.decodeIfPresent(String.self, forKey: .genericName)
+        productName = try container.decodeIfPresent(String.self, forKey: .productName)
+        ingredients = try container.decodeIfPresent(String.self, forKey: .ingredients)
+    }
+}
+
+public struct Fr: Decodable {
+    
+    public var genericName: String?
+    public var productName: String?
+    public var ingredients: String?
+    
+    
+    private enum CodingKeys: String, CodingKey {
+        case genericName = "generic_name_fr"
+        case productName = "product_name_fr"
+        case ingredients = "ingredients_text_fr"
+        
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        genericName = try container.decodeIfPresent(String.self, forKey: .genericName)
+        productName = try container.decodeIfPresent(String.self, forKey: .productName)
+        ingredients = try container.decodeIfPresent(String.self, forKey: .ingredients)
+    }
+}
+
+
+
 public struct ProductResponse {
     public let statusVerbose: String
     public let code: String?
@@ -25,8 +93,9 @@ public enum ResponseStatus {
 /**
  A Open food facts product model class
 */
-public class OFFProduct: Codable {
+public class OFFProduct: Decodable {
     public var code: String!
+    public var mainProductlanguage: String?
     public var createdAt: Double!
     public var lastModifiedBy: String?
     public var genericName: String?
@@ -40,8 +109,6 @@ public class OFFProduct: Codable {
     public var storesTags: [String]?
     //INGREDIENTS
     public var ingredientText: String?
-    public var ingredientsTextEN: String?
-    public var ingredientsTextAR: String?
     public var ingredientsTags: [String]?
     public var ingredientsTagsEN: [String]?
     public var ingredientsTagsAR: [String]?
@@ -83,6 +150,10 @@ public class OFFProduct: Codable {
     public var imageFrontThumb: URL?
     public var imageNutritionThumb: URL?
     public var imageIngredientsThumb: URL?
+    
+    public var ar: Ar?
+    public var en: En?
+    public var fr: Fr?
 
 
     public init(){}
@@ -90,6 +161,7 @@ public class OFFProduct: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         code = try container.decode(String.self, forKey: .code)
+        mainProductlanguage = try container.decodeIfPresent(String.self, forKey: .mainProductLanguage)
         createdAt = try container.decode(Double.self, forKey: .createdAt)
         lastModifiedBy = try container.decodeIfPresent(String.self, forKey: .lastModifiedBy)
         genericName = try container.decodeIfPresent(String.self, forKey: .genericName)
@@ -104,8 +176,6 @@ public class OFFProduct: Codable {
         storesText = try container.decodeIfPresent(String.self, forKey: .storesText)
         storesTags = try container.decodeIfPresent([String].self, forKey: .storesTags)
         ingredientText = try container.decodeIfPresent(String.self, forKey: .ingredientText)
-        ingredientsTextEN = try container.decodeIfPresent(String.self, forKey: .ingredientsTextEN)
-        ingredientsTextAR = try container.decodeIfPresent(String.self, forKey: .ingredientsTextAR)
         ingredientsTags = try container.decodeIfPresent([String].self, forKey: .ingredientsTags)
         ingredientsTagsEN = try container.decodeIfPresent([String].self, forKey: .ingredientsTags)?.filter{$0.contains(Languages.en.rawValue)}
         ingredientsTagsEN = ingredientsTagsEN != nil && (ingredientsTagsEN?.isEmpty)! ? nil : ingredientsTagsEN
@@ -160,6 +230,14 @@ public class OFFProduct: Codable {
         imageIngredientsSmall = try container.decodeIfPresent(URL.self, forKey: .imageIngredientsSmall)
         imageIngredientsThumb = try container.decodeIfPresent(URL.self, forKey: .imageIngredientsThumb)
         
+        if LanguageManager.productLanguage == .ar {
+            ar = try Ar(from: decoder)
+        } else if LanguageManager.productLanguage == .en {
+            en = try En(from: decoder)
+        } else if LanguageManager.productLanguage == .fr {
+            fr = try Fr(from: decoder)
+        }
+        
     }
     
 }
@@ -168,6 +246,7 @@ extension OFFProduct {
     
     private enum CodingKeys: String, CodingKey {
         case code = "code"
+        case mainProductLanguage = "lang"
         case createdAt = "created_t"
         case lastModifiedBy = "last_modified_by"
         case genericName = "generic_name"
@@ -210,7 +289,7 @@ extension OFFProduct {
         
     }
     
-    public func encode(to encoder: Encoder) throws {
+    /*public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(genericName, forKey: .genericName)
         try container.encode(productName, forKey: .productName)
@@ -229,10 +308,9 @@ extension OFFProduct {
         try container.encode(nutrietLevels, forKey: .nutrientLevels)
         try container.encode(nutritionGrades, forKey: .nutritionGrades)
     
-    }
+    }*/
     
 }
-
 
 
 extension ProductResponse: Decodable {
@@ -258,6 +336,7 @@ extension ProductResponse: Decodable {
         product = try container.decodeIfPresent(OFFProduct.self, forKey: .product)
     }
 }
+
 
 
 

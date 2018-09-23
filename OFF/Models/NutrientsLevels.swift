@@ -8,13 +8,13 @@
 
 import Foundation
 
-public enum Levels: String, Codable {
+public enum Levels: String, Decodable {
     case low
     case moderate
     case high
 }
 
-public struct NutrientLevels: Codable {
+public struct NutrientLevels: Decodable {
     public let salt: Levels?
     public let saturatedFats: Levels?
     public let fat: Levels?
@@ -39,8 +39,8 @@ extension NutrientLevels {
         sugar = try container.decodeIfPresent(Levels.self, forKey: .sugar)
     }
     
-    public func encode(to encoder: Encoder) throws {
+    /*public func encode(to encoder: Encoder) throws {
         
-    }
+    }*/
     
 }

@@ -8,8 +8,19 @@
 
 import Foundation
 
+public enum ProductLang {
+    case ar
+    case fr
+    case en
+    case none
+}
+
 enum Languages: String {
     case en = "en:"
     case ar = "ar:"
     case fr = "fr:"
+}
+
+struct LanguageManager {
+    static var productLanguage: ProductLang = .none
 }

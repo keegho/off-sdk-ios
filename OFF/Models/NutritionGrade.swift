@@ -8,6 +8,6 @@
 
 import Foundation
 
-public enum NutriScore: String, Codable {
+public enum NutriScore: String, Decodable {
     case a,b,c,d,e
 }

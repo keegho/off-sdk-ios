@@ -50,9 +50,9 @@ extension ProductWriteApi: EndPointType {
             let username = NetworkManager.username
             let password = NetworkManager.password
             
-            let productValues = [/*code, username, password, */product.genericName, product.productName, product.categoriesText, product.countriesText, product.additivesText, product.ingredientText, product.quantity, product.brandsText, product.storesText, product.labelsText, username]
+            let productValues = [/*code, username, password, */product.genericName, product.productName, product.categoriesText, product.countriesText, product.additivesText, product.ingredientText, product.quantity, product.brandsText, product.storesText, product.labelsText]
             
-            let keyArray = [/*Constants.OffProduct.code, Constants.username, Constants.password ,*/Constants.OffProduct.genericName, Constants.OffProduct.productName, Constants.OffProduct.categoriesText, Constants.OffProduct.countriesText, Constants.OffProduct.additivesText, Constants.OffProduct.ingredientText, Constants.OffProduct.quantity, Constants.OffProduct.brandsText, Constants.OffProduct.storesText, Constants.OffProduct.labelsText, Constants.OffProduct.lastModifiedBy]
+            let keyArray = [/*Constants.OffProduct.code, Constants.username, Constants.password ,*/Constants.OffProduct.genericName, Constants.OffProduct.productName, Constants.OffProduct.categoriesText, Constants.OffProduct.countriesText, Constants.OffProduct.additivesText, Constants.OffProduct.ingredientText, Constants.OffProduct.quantity, Constants.OffProduct.brandsText, Constants.OffProduct.storesText, Constants.OffProduct.labelsText]
             
             parameters.updateValue(code, forKey: Constants.OffProduct.code)
             parameters.updateValue(username, forKey: Constants.username)
@@ -65,7 +65,7 @@ extension ProductWriteApi: EndPointType {
                 }
             }
 
-            print(parameters)
+            //print(parameters)
 
             return parameters
         }
