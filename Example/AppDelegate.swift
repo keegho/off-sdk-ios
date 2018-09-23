@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         off.lanugageUrl = .world*/
         
          off.enviroment = .production
-         off.username = "keegho"
-         off.password = "kegham18"
+         off.username = "off"
+         off.password = "off"
          off.lanugageUrl = .world
          off.productLanguage = .ar
         
